@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:century_cqg/Screens/Dashboard/service/dasboard_service.dart';
 import 'package:century_cqg/Helper/nerve_base.dart';
 import '../../../Helper/nerve_styles.dart';
+import '../../Search/ui/search_page.dart';
 
 class DashboardAppbar extends StatelessWidget implements PreferredSizeWidget {
   const DashboardAppbar({super.key});
@@ -48,7 +49,14 @@ class DashboardAppbar extends StatelessWidget implements PreferredSizeWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      // nTangle - Navigate to SearchPage when search icon is tapped
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const SearchPage(),
+                        ),
+                      );
+                    },
                     borderRadius: BorderRadius.circular(20),
                     child: Padding(
                       padding: NerveStyles.iconPadding,

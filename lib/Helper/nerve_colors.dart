@@ -26,6 +26,7 @@ class NerveColors {
   static const Color selectedNavColor = Color(0xFFF2C400);
   static const Color trendingBadgeBG = Color(0xFFF2C400);
   static const Color trendingBadgeText = Color(0xFF444444);
+  static const Color searchTextfieldBorderColor = Color(0x1A000000);
   static const Color chartbgGreenLigth = Color(0x0D22C55E);
   static const Color chartbgGreenDark = Color(0xFF2A3A32);
 

@@ -2,7 +2,9 @@ import 'package:century_cqg/Helper/nerve_base.dart';
 import 'package:century_cqg/Helper/nerve_navigation.dart';
 import 'package:century_cqg/Screens/Account/service/account_service.dart';
 import 'package:century_cqg/Screens/Dashboard/service/dasboard_service.dart';
+import 'package:century_cqg/Screens/Login/service/login_service.dart';
 import 'package:century_cqg/Screens/Watchlist/service/watchlist_service.dart';
+import 'package:century_cqg/Screens/Search/service/search_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,14 +18,12 @@ void main() async {
         ChangeNotifierProvider<DashboardService>(
           create: (_) => DashboardService(),
         ),
-        ChangeNotifierProvider<AccountService>(create: (_) => AccountService()),
         ChangeNotifierProvider<WatchlistService>(
-          create: (_) {
-            final service = WatchlistService();
-            service.loadWatchedLists();
-            return service;
-          },
+          create: (_) => WatchlistService(),
         ),
+        ChangeNotifierProvider<AccountService>(create: (_) => AccountService()),
+        ChangeNotifierProvider<SearchService>(create: (_) => SearchService()),
+        ChangeNotifierProvider<LoginService>(create: (_) => LoginService()),
       ],
       child: const MyApp(),
     ),
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         final isDarkMode = NerveBase().isDarkMode;
 
         return MaterialApp(
-          title: '',
+          title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             brightness: Brightness.light,
@@ -51,10 +51,10 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData(
             brightness: Brightness.dark,
             colorSchemeSeed: Colors.blue,
-            scaffoldBackgroundColor: const Color(0xFF0D110F),
+            scaffoldBackgroundColor: const Color(0xFF121212),
           ),
           themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
-          initialRoute: NerveScreensNames.dashboard,
+          initialRoute: NerveScreensNames.splash,
           routes: NerveNavigator.appRoutes,
           builder:
               (context, child) => MediaQuery(
@@ -62,18 +62,12 @@ class MyApp extends StatelessWidget {
                   devicePixelRatio: 1.0,
                   textScaler: TextScaler.linear(1.0),
                 ),
-                child: Container(
-                  color:
-                      NerveBase().isDarkMode
-                          ? const Color(0xFF0D110F)
-                          : const Color(0xFFF6F6F6),
-                  child: SafeArea(
-                    child:
-                        child ??
-                        Container(
-                          color: Theme.of(context).scaffoldBackgroundColor,
-                        ),
-                  ),
+                child: SafeArea(
+                  child:
+                      child ??
+                      Container(
+                        color: Theme.of(context).scaffoldBackgroundColor,
+                      ),
                 ),
               ),
         );

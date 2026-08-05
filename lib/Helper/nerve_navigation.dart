@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:century_cqg/Screens/Dashboard/ui/home_page.dart';
 import 'package:century_cqg/Screens/Login/ui/login_page.dart';
+import 'package:century_cqg/Screens/Splash/ui/splash_screen.dart';
 
 class NerveScreensNames {
+  static const String splash = '/';
   static const String login = '/login';
   static const String dashboard = '/dashboard';
   static const String profile = '/profile';
@@ -11,6 +13,7 @@ class NerveScreensNames {
 
 class NerveNavigator {
   static final appRoutes = <String, WidgetBuilder>{
+    NerveScreensNames.splash: (BuildContext context) => const SplashScreen(),
     NerveScreensNames.login: (BuildContext context) => const LoginMain(),
     NerveScreensNames.dashboard:
         (BuildContext context) => const MobileHomePage(),
