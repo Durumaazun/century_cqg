@@ -5,6 +5,15 @@ import 'package:century_cqg/Screens/Dashboard/service/dasboard_service.dart';
 import 'package:century_cqg/Screens/Login/service/login_service.dart';
 import 'package:century_cqg/Screens/Watchlist/service/watchlist_service.dart';
 import 'package:century_cqg/Screens/Search/service/search_service.dart';
+import 'package:century_cqg/Screens/Trade/Execution/service/execution_service.dart'
+    as trade_execution;
+import 'package:century_cqg/Screens/Trade/History/service/history_service.dart';
+import 'package:century_cqg/Screens/Trade/History/service/execution_service.dart'
+    as history_execution;
+import 'package:century_cqg/Screens/Trade/Holdings/service/holding_service.dart';
+import 'package:century_cqg/Screens/Trade/service/trade_page_service.dart';
+import 'package:century_cqg/Screens/Trade/service/trade_service.dart';
+import 'package:century_cqg/Screens/Trade/service/modify_order_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,6 +33,21 @@ void main() async {
         ChangeNotifierProvider<AccountService>(create: (_) => AccountService()),
         ChangeNotifierProvider<SearchService>(create: (_) => SearchService()),
         ChangeNotifierProvider<LoginService>(create: (_) => LoginService()),
+        ChangeNotifierProvider<TradeService>(create: (_) => TradeService()),
+        ChangeNotifierProvider<TradePageService>(
+          create: (_) => TradePageService(),
+        ),
+        ChangeNotifierProvider<ModifyOrderService>(
+          create: (_) => ModifyOrderService(),
+        ),
+        ChangeNotifierProvider<HoldingService>(create: (_) => HoldingService()),
+        ChangeNotifierProvider<HistoryService>(create: (_) => HistoryService()),
+        ChangeNotifierProvider<trade_execution.ExecutionService>(
+          create: (_) => trade_execution.ExecutionService(),
+        ),
+        ChangeNotifierProvider<history_execution.ExecutionService>(
+          create: (_) => history_execution.ExecutionService(),
+        ),
       ],
       child: const MyApp(),
     ),

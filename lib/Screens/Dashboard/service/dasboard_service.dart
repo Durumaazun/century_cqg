@@ -5,6 +5,18 @@ import 'package:century_cqg/Screens/Dashboard/model/top_view_stocks.dart';
 import 'package:century_cqg/Helper/nerve_base.dart';
 
 class DashboardService extends ChangeNotifier {
+  int _selectedHomeTabIndex = 0;
+
+  int get selectedHomeTabIndex => _selectedHomeTabIndex;
+
+  void setSelectedHomeTabIndex(int index) {
+    if (_selectedHomeTabIndex == index) {
+      return;
+    }
+    _selectedHomeTabIndex = index;
+    notifyListeners();
+  }
+
   late AccountSummary _accountSummary;
   late List<Stock> _watchedStocks;
   late List<Position> _topPositions;

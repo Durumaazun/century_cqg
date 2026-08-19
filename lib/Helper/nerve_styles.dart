@@ -6,6 +6,42 @@ import 'nerve_colors.dart';
 class NerveStyles {
   static const double appBarHeight = 50;
   static const EdgeInsetsGeometry iconPadding = EdgeInsets.all(6.0);
+  static const Color filterChipBackground = Color(0xFFF1F3F2);
+  static const Color filterChipSelectedBackground = Color(0xFFFFC400);
+
+  static TextStyle filterTitleStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font20,
+      fontWeight: FontWeight.w400,
+      color: color,
+    );
+  }
+
+  static TextStyle filterSectionLabelStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font12,
+      fontWeight: FontWeight.w500,
+      color: color,
+    );
+  }
+
+  static BoxDecoration filterChipDecoration({bool selected = false}) {
+    return BoxDecoration(
+      color: selected ? filterChipSelectedBackground : filterChipBackground,
+      borderRadius: BorderRadius.circular(7),
+    );
+  }
+
+  static TextStyle filterChipTextStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font12,
+      fontWeight: FontWeight.w500,
+      color: color,
+    );
+  }
 
   static Color appBarBackground(bool isDarkMode) {
     return NerveColors.appBarBackground(isDarkMode);
@@ -30,6 +66,262 @@ class NerveStyles {
   static TextStyle titleTextStyle(bool isDarkMode) {
     return black_medium_16(isDarkMode).copyWith(color: titleColor(isDarkMode));
   }
+
+  static TextStyle tradeTabLabelStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font16,
+      fontWeight: FontWeight.w400,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradePnlLabelStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font9,
+      fontWeight: FontWeight.w400,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradePnlAmountStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font12,
+      fontWeight: FontWeight.w500,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradeNetPositionTitleStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font16,
+      fontWeight: FontWeight.w500,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradePositionSymbolStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font14,
+      fontWeight: FontWeight.w500,
+      height: 16 / 14,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradePositionPriceStyle(Color color) {
+    return tradePositionSymbolStyle(color);
+  }
+
+  static TextStyle tradePositionPillTextStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font12,
+      fontWeight: FontWeight.w500,
+      color: color,
+    );
+  }
+
+  static TextStyle tradePositionBadgeCountStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font10,
+      fontWeight: FontWeight.w600,
+      color: color,
+    );
+  }
+
+  static TextStyle tradePositionMetricLabelStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font10,
+      fontWeight: FontWeight.w400,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradePositionMetricValueStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font12,
+      fontWeight: FontWeight.w500,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradePositionAvatarTextStyle() {
+    return const TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font14,
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
+    );
+  }
+
+  static TextStyle tradePlaceholderStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font14,
+      fontWeight: FontWeight.w400,
+      color: color,
+    );
+  }
+
+  static TextStyle tradeDetailsAppBarTitleStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font18,
+      fontWeight: FontWeight.w500,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradeDetailsHeaderSymbolStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font14,
+      fontWeight: FontWeight.w500,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradeDetailsCloseAllButtonStyle() {
+    return const TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font14,
+      fontWeight: FontWeight.w500,
+      height: 16 / 14,
+      letterSpacing: 0,
+    );
+  }
+
+  static TextStyle tradeDetailsSectionTitleStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font16,
+      fontWeight: FontWeight.w500,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradeDetailsOrderIdStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font12,
+      fontWeight: FontWeight.w400,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradeDetailsOrderPnlStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font12,
+      fontWeight: FontWeight.w600,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradeDetailsOrderDateStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font12,
+      fontWeight: FontWeight.w400,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradeDetailsStatusBadgeStyle() {
+    return const TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font11,
+      fontWeight: FontWeight.w500,
+      height: 1,
+      letterSpacing: 0,
+      color: Color(0xFFA68D21),
+    );
+  }
+
+  static TextStyle tradeDetailsOrderMetricLabelStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font13,
+      fontWeight: FontWeight.w400,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradeDetailsOrderMetricValueStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font24,
+      fontWeight: FontWeight.w500,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static TextStyle tradeDetailsOrderBuyValueStyle(Color color) {
+    return TextStyle(
+      fontFamily: 'Inter',
+      fontSize: _font12,
+      fontWeight: FontWeight.w500,
+      height: 1,
+      letterSpacing: 0,
+      color: color,
+    );
+  }
+
+  static BoxDecoration tradeDetailsCardDecoration(
+    Color background,
+    Color borderColor,
+  ) {
+    return BoxDecoration(color: background);
+  }
+
+  static BoxDecoration tradeDetailsStatusBadgeDecoration() {
+    return BoxDecoration(
+      color: const Color(0xFFFFF8E1),
+      // borderRadius: BorderRadius.circular(12),
+    );
+  }
+
+  static const BoxDecoration tradeDetailsCloseIconDecoration = BoxDecoration(
+    color: Color(0xFFFEF2F3),
+    shape: BoxShape.circle,
+  );
 
   static const _fontFamilyCenturyGothic = 'CenturyGothic';
 
@@ -70,6 +362,8 @@ class NerveStyles {
   static const _font23 = 23.0;
 
   static const _font24 = 24.0;
+
+  static const _font28 = 28.0;
 
   static const _font25 = 25.0;
 
@@ -977,4 +1271,6 @@ class NerveStyles {
       darkColor: const Color(0xFFFFA75C),
     );
   }
+
+  static black_regular_14_400(bool isDarkMode) {}
 }

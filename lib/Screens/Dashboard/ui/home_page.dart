@@ -9,6 +9,7 @@ import 'package:century_cqg/Screens/Dashboard/ui/dashboad_bodyView.dart';
 import 'package:century_cqg/Screens/Dashboard/ui/dashboard_appbar.dart';
 import 'package:century_cqg/Screens/Watchlist/ui/watchlist_page.dart';
 import 'package:century_cqg/Screens/Watchlist/ui/create_watchlist_page.dart';
+import 'package:century_cqg/Screens/Trade/ui/positions/trade_page.dart';
 import 'package:century_cqg/Helper/nerve_base.dart';
 import 'package:century_cqg/Helper/nerve_styles.dart';
 
@@ -20,8 +21,6 @@ class MobileHomePage extends StatefulWidget {
 }
 
 class _MobileHomePageState extends State<MobileHomePage> {
-  int _selectedIndex = 0;
-
   final List<String> _tabNames = [
     'Home',
     'Watchlists',
@@ -30,17 +29,19 @@ class _MobileHomePageState extends State<MobileHomePage> {
     'Scalper',
   ];
 
-  Widget _buildPageContent(bool isDarkMode) {
-    if (_selectedIndex == 0) {
+  Widget _buildPageContent(bool isDarkMode, int selectedIndex) {
+    if (selectedIndex == 0) {
       return DashboardBodyView();
-    } else if (_selectedIndex == 1) {
+    } else if (selectedIndex == 1) {
       return WatchlistPage();
-    } else if (_selectedIndex == 2) {
+    } else if (selectedIndex == 2) {
       return AccountPage();
+    } else if (selectedIndex == 3) {
+      return const TradePage();
     } else {
       return Center(
         child: Text(
-          _tabNames[_selectedIndex],
+          _tabNames[selectedIndex],
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -53,16 +54,16 @@ class _MobileHomePageState extends State<MobileHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<DashboardService>();
+    final dashboardService = context.watch<DashboardService>();
     final watchlistService = context.watch<WatchlistService>();
+    final selectedIndex = dashboardService.selectedHomeTabIndex;
 
     NerveBase().getScreenSize(NerveBase().screenWidth, false);
     final isDarkMode = NerveBase().isDarkMode;
     final watchlistTabs = watchlistService.watchedLists;
     final selectedWatchlistTabIndex = watchlistService.selectedTabIndex;
 
-    final bgColor =
-        isDarkMode ? const Color(0xFF0D110F) : const Color(0xFFF6F6F6);
+    final bgColor = NerveColors.projectBackgroundColor(isDarkMode);
 
     return PopScope(
       canPop: false,
@@ -70,12 +71,14 @@ class _MobileHomePageState extends State<MobileHomePage> {
         resizeToAvoidBottomInset: true,
         backgroundColor: bgColor,
         appBar:
-            _selectedIndex == 0
+            selectedIndex == 0
                 ? const DashboardAppbar()
-                : _selectedIndex == 1
+                : selectedIndex == 1
                 ? const CommonAppbar(title: 'Watched list')
-                : _selectedIndex == 2
+                : selectedIndex == 2
                 ? const CommonAppbar(title: 'Accounts')
+                : selectedIndex == 3
+                ? const CommonAppbar(title: 'Trades')
                 : null,
         body: SafeArea(
           child: Container(
@@ -85,7 +88,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (_selectedIndex == 1)
+                if (selectedIndex == 1)
                   Container(
                     width: double.infinity,
                     color:
@@ -168,47 +171,32 @@ class _MobileHomePageState extends State<MobileHomePage> {
                       ],
                     ),
                   ),
-                if (_selectedIndex == 1)
+                if (selectedIndex == 1)
                   Container(
                     height: 1,
                     color:
                         isDarkMode ? const Color(0xFF282D2A) : Colors.grey[300],
                   ),
-                Container(
-                  height: 8,
-                  color: isDarkMode ? const Color(0xFF010302) : bgColor,
-                ),
+                if (selectedIndex != 3) Container(height: 8, color: bgColor),
                 Expanded(
                   child:
-                      _selectedIndex == 0
+                      selectedIndex == 0
                           ? SingleChildScrollView(
                             child: Column(
                               children: [
-                                Container(
-                                  height: 8,
-                                  color:
-                                      isDarkMode
-                                          ? const Color(0xFF010302)
-                                          : bgColor,
-                                ),
+                                Container(height: 2, color: bgColor),
                                 DashboardBodyView(),
                               ],
                             ),
                           )
-                          : _selectedIndex == 1
+                          : selectedIndex == 1
                           ? Column(
                             children: [
                               const Expanded(child: WatchlistPage()),
-                              Container(
-                                height: 8,
-                                color:
-                                    isDarkMode
-                                        ? const Color(0xFF010302)
-                                        : bgColor,
-                              ),
+                              Container(height: 8, color: bgColor),
                             ],
                           )
-                          : _buildPageContent(isDarkMode),
+                          : _buildPageContent(isDarkMode, selectedIndex),
                 ),
               ],
             ),
@@ -228,7 +216,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
           ),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            currentIndex: _selectedIndex,
+            currentIndex: selectedIndex,
             backgroundColor:
                 NerveBase().isDarkMode ? const Color(0xFF0D110F) : Colors.white,
             selectedItemColor: NerveColors.selectedNavColor,
@@ -244,7 +232,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
                   width: 24,
                   height: 24,
                   colorFilter: ColorFilter.mode(
-                    _selectedIndex == 0
+                    selectedIndex == 0
                         ? NerveColors.selectedNavColor
                         : (NerveBase().isDarkMode
                             ? Colors.grey[600]!
@@ -260,7 +248,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
                   width: 24,
                   height: 24,
                   colorFilter: ColorFilter.mode(
-                    _selectedIndex == 1
+                    selectedIndex == 1
                         ? NerveColors.selectedNavColor
                         : (NerveBase().isDarkMode
                             ? Colors.grey[600]!
@@ -276,7 +264,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
                   width: 24,
                   height: 24,
                   colorFilter: ColorFilter.mode(
-                    _selectedIndex == 2
+                    selectedIndex == 2
                         ? NerveColors.selectedNavColor
                         : (NerveBase().isDarkMode
                             ? Colors.grey[600]!
@@ -292,7 +280,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
                   width: 24,
                   height: 24,
                   colorFilter: ColorFilter.mode(
-                    _selectedIndex == 3
+                    selectedIndex == 3
                         ? NerveColors.selectedNavColor
                         : (NerveBase().isDarkMode
                             ? Colors.grey[600]!
@@ -308,7 +296,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
                   width: 24,
                   height: 24,
                   colorFilter: ColorFilter.mode(
-                    _selectedIndex == 4
+                    selectedIndex == 4
                         ? NerveColors.selectedNavColor
                         : (NerveBase().isDarkMode
                             ? Colors.grey[600]!
@@ -320,9 +308,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
               ),
             ],
             onTap: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
+              context.read<DashboardService>().setSelectedHomeTabIndex(index);
             },
           ),
         ),

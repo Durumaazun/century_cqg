@@ -88,6 +88,8 @@ class NerveColors {
 
   static const Color lightAppBarBackground = Colors.white;
   static const Color darkAppBarBackground = Color(0xFF0D110F);
+  static const Color lightProjectBackground = Color(0xFFF6F6F6);
+  static const Color darkProjectBackground = Color(0xFF0D110F);
   static const Color lightTitleColor = Colors.black87;
   static const Color darkTitleColor = Colors.white;
   static const Color lightIconColor = Colors.black54;
@@ -111,8 +113,12 @@ class NerveColors {
     return isDarkMode ? darkIconBackground : lightIconBackground;
   }
 
+  static Color projectBackgroundColor(bool isDarkMode) {
+    return isDarkMode ? darkProjectBackground : lightProjectBackground;
+  }
+
   static Color scaffoldBackgroundColor(bool isDarkMode) {
-    return isDarkMode ? const Color(0xFF121212) : Colors.white;
+    return projectBackgroundColor(isDarkMode);
   }
 
   static Color primaryColor(bool isDarkMode) {

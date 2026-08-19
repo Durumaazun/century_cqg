@@ -42,116 +42,94 @@ class DashboardBodyView extends StatelessWidget {
   Widget accountSumView(bool isDarkMode) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color:
-            isDarkMode
-                ? const Color(0xFF0D110F)
-                : NerveColors.scaffoldBackgroundColor(isDarkMode),
-        border: Border(
-          top: BorderSide(
-            color:
-                isDarkMode
-                    ? const Color(0xFF202220)
-                    : NerveColors.containerBorderColor,
-            width: 1,
-          ),
-          bottom: BorderSide(
-            color:
-                isDarkMode
-                    ? const Color(0xFF202220)
-                    : NerveColors.containerBorderColor,
-            width: 1,
-          ),
-        ),
-      ),
-      child: Card(
-        elevation: 0,
-        color: isDarkMode ? const Color(0xFF0D110F) : Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Account Summary',
-                style: NerveStyles.black_medium_14_400(isDarkMode),
-              ),
-              const SizedBox(height: 6),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    flex: 4,
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 4),
-                      child: _buildMetricColumn(
-                        title: 'Cash Balance',
-                        value: '\$84,250.00',
-                        isDarkMode: isDarkMode,
-                        valueSize: 20,
-                        valueWeight: FontWeight.bold,
-                      ),
+      color:
+          isDarkMode
+              ? const Color(0xFF0D110F)
+              : NerveColors.scaffoldBackgroundColor(isDarkMode),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Account Summary',
+              style: NerveStyles.black_medium_14_400(isDarkMode),
+            ),
+            const SizedBox(height: 6),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 4,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 4),
+                    child: _buildMetricColumn(
+                      title: 'Cash Balance',
+                      value: '\$84,250.00',
+                      isDarkMode: isDarkMode,
+                      valueSize: 20,
+                      valueWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    flex: 3,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          _buildMetricItem(
-                            'Buying Power',
-                            '\$168,500.00',
-                            isDarkMode: isDarkMode,
-                            isBoldValue: true,
-                          ),
-                          const SizedBox(height: 6),
-                          _buildMetricItem(
-                            'Unrealized P&L',
-                            '+\$1,842.00',
-                            isDarkMode: isDarkMode,
-                            valueColor:
-                                isDarkMode
-                                    ? Colors.green.shade300
-                                    : Colors.green.shade600,
-                          ),
-                        ],
-                      ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  flex: 3,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildMetricItem(
+                          'Buying Power',
+                          '\$168,500.00',
+                          isDarkMode: isDarkMode,
+                          isBoldValue: true,
+                        ),
+                        const SizedBox(height: 6),
+                        _buildMetricItem(
+                          'Unrealized P&L',
+                          '+\$1,842.00',
+                          isDarkMode: isDarkMode,
+                          valueColor:
+                              isDarkMode
+                                  ? Colors.green.shade300
+                                  : Colors.green.shade600,
+                        ),
+                      ],
                     ),
                   ),
-                  Expanded(
-                    flex: 3,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 4),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          _buildMetricItem(
-                            'Margin Used',
-                            '\$42,100.00',
-                            isDarkMode: isDarkMode,
-                          ),
-                          const SizedBox(height: 6),
-                          _buildMetricItem(
-                            'Realized P&L',
-                            '+\$3,215.00',
-                            isDarkMode: isDarkMode,
-                            valueColor:
-                                isDarkMode
-                                    ? Colors.green.shade300
-                                    : Colors.green.shade600,
-                          ),
-                        ],
-                      ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 4),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildMetricItem(
+                          'Margin Used',
+                          '\$42,100.00',
+                          isDarkMode: isDarkMode,
+                        ),
+                        const SizedBox(height: 6),
+                        _buildMetricItem(
+                          'Realized P&L',
+                          '+\$3,215.00',
+                          isDarkMode: isDarkMode,
+                          valueColor:
+                              isDarkMode
+                                  ? Colors.green.shade300
+                                  : Colors.green.shade600,
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-              const SizedBox(height: 6),
-            ],
-          ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 6),
+          ],
         ),
       ),
     );
@@ -204,16 +182,18 @@ class DashboardBodyView extends StatelessWidget {
               SizedBox(
                 height: 163,
 
-                // padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 19),
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: 4,
                   separatorBuilder:
                       (context, index) => const SizedBox(width: 16),
                   itemBuilder: (context, index) {
-                    return stockCard(
-                      stock: proValue.stocks[index],
-                      isDarkMode: isDarkMode,
+                    return GestureDetector(
+                      onTap: () {},
+                      child: stockCard(
+                        stock: proValue.stocks[index],
+                        isDarkMode: isDarkMode,
+                      ),
                     );
                   },
                 ),
@@ -685,187 +665,194 @@ class DashboardBodyView extends StatelessWidget {
                   final stock = proValue.stocks[index % proValue.stocks.length];
                   final isPositive = stock.percentageChange >= 0;
 
-                  return Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 16,
-                    ),
-                    decoration: BoxDecoration(
-                      color:
-                          isDarkMode ? const Color(0xFF1C1E1D) : Colors.white,
-                      border: Border.all(
-                        width: 1,
-                        color:
-                            isDarkMode
-                                ? const Color(0x0DFFFFFF)
-                                : const Color(0x0D000000),
+                  return GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 16,
                       ),
-                      borderRadius: BorderRadius.circular(16),
-                      boxShadow: [
-                        BoxShadow(
+                      decoration: BoxDecoration(
+                        color:
+                            isDarkMode ? const Color(0xFF1C1E1D) : Colors.white,
+                        border: Border.all(
+                          width: 1,
                           color:
                               isDarkMode
-                                  ? const Color(0x14FFFFFF)
-                                  : const Color(0x29000000),
-                          offset: const Offset(1, 2),
-                          blurRadius: 4,
-                          spreadRadius: 0,
+                                  ? const Color(0x0DFFFFFF)
+                                  : const Color(0x0D000000),
                         ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              width: 28,
-                              height: 28,
-                              decoration: BoxDecoration(
-                                color:
-                                    isDarkMode
-                                        ? const Color(0xFF2A2A2A)
-                                        : const Color(0xFFF2F2F2),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  stock.symbol[0],
-                                  style: TextStyle(
-                                    color:
-                                        isDarkMode
-                                            ? Colors.white
-                                            : Colors.black87,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 11,
-                                  ),
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color:
+                                isDarkMode
+                                    ? const Color(0x14FFFFFF)
+                                    : const Color(0x29000000),
+                            offset: const Offset(1, 2),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                width: 28,
+                                height: 28,
+                                decoration: BoxDecoration(
+                                  color:
+                                      isDarkMode
+                                          ? const Color(0xFF2A2A2A)
+                                          : const Color(0xFFF2F2F2),
+                                  borderRadius: BorderRadius.circular(12),
                                 ),
-                              ),
-                            ),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    stock.symbol,
+                                child: Center(
+                                  child: Text(
+                                    stock.symbol[0],
                                     style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 12,
                                       color:
                                           isDarkMode
                                               ? Colors.white
                                               : Colors.black87,
-                                    ),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                  Text(
-                                    '\$${stock.price.toStringAsFixed(2)}',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.bold,
                                       fontSize: 11,
-                                      color:
-                                          isDarkMode
-                                              ? Colors.grey[200]
-                                              : Colors.grey,
                                     ),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 8),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              '${isPositive ? '+' : ''}${stock.percentageChange.toStringAsFixed(2)}%',
-                              style: TextStyle(
-                                color:
-                                    isPositive
-                                        ? (isDarkMode
-                                            ? Colors.green.shade300
-                                            : Colors.green.shade600)
-                                        : (isDarkMode
-                                            ? Colors.red.shade300
-                                            : Colors.red.shade600),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 11,
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      stock.symbol,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12,
+                                        color:
+                                            isDarkMode
+                                                ? Colors.white
+                                                : Colors.black87,
+                                      ),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                    Text(
+                                      '\$${stock.price.toStringAsFixed(2)}',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 11,
+                                        color:
+                                            isDarkMode
+                                                ? Colors.grey[200]
+                                                : Colors.grey,
+                                      ),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            Text(
-                              '(${isPositive ? '+' : ''}${stock.pointsChange.toStringAsFixed(2)} pts)',
-                              style: TextStyle(
-                                color:
-                                    isPositive
-                                        ? (isDarkMode
-                                            ? Colors.green.shade300
-                                            : Colors.green.shade600)
-                                        : (isDarkMode
-                                            ? Colors.red.shade300
-                                            : Colors.red.shade600),
-                                fontSize: 9,
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '${isPositive ? '+' : ''}${stock.percentageChange.toStringAsFixed(2)}%',
+                                style: TextStyle(
+                                  color:
+                                      isPositive
+                                          ? (isDarkMode
+                                              ? Colors.green.shade300
+                                              : Colors.green.shade600)
+                                          : (isDarkMode
+                                              ? Colors.red.shade300
+                                              : Colors.red.shade600),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 11,
+                                ),
                               ),
+                              Text(
+                                '(${isPositive ? '+' : ''}${stock.pointsChange.toStringAsFixed(2)} pts)',
+                                style: TextStyle(
+                                  color:
+                                      isPositive
+                                          ? (isDarkMode
+                                              ? Colors.green.shade300
+                                              : Colors.green.shade600)
+                                          : (isDarkMode
+                                              ? Colors.red.shade300
+                                              : Colors.red.shade600),
+                                  fontSize: 9,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 6),
+                          Container(
+                            height: 24,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color:
+                                  isPositive
+                                      ? (isDarkMode
+                                          ? const Color(0xFF2A3A32)
+                                          : const Color(0xFFEAF7F0))
+                                      : (isDarkMode
+                                          ? const Color(0xFF3A2A2A)
+                                          : const Color(0xFFF7EAEA)),
+                              borderRadius:
+                                  isDarkMode ? null : BorderRadius.circular(6),
                             ),
-                          ],
-                        ),
-                        const SizedBox(height: 6),
-                        Container(
-                          height: 24,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color:
+                            child: CustomPaint(
+                              painter: SparklinePainter(
+                                stock.sparklinePoints,
                                 isPositive
                                     ? (isDarkMode
-                                        ? const Color(0xFF2A3A32)
-                                        : const Color(0xFFEAF7F0))
+                                        ? Colors.green.shade300
+                                        : Colors.green.shade600)
                                     : (isDarkMode
-                                        ? const Color(0xFF3A2A2A)
-                                        : const Color(0xFFF7EAEA)),
-                            borderRadius:
-                                isDarkMode ? null : BorderRadius.circular(6),
-                          ),
-                          child: CustomPaint(
-                            painter: SparklinePainter(
-                              stock.sparklinePoints,
-                              isPositive
-                                  ? (isDarkMode
-                                      ? Colors.green.shade300
-                                      : Colors.green.shade600)
-                                  : (isDarkMode
-                                      ? Colors.red.shade300
-                                      : Colors.red.shade600),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'B ${stock.bid.toStringAsFixed(2)}',
-                              style: TextStyle(
-                                color:
-                                    isDarkMode ? Colors.grey[200] : Colors.grey,
-                                fontSize: 10,
+                                        ? Colors.red.shade300
+                                        : Colors.red.shade600),
                               ),
                             ),
-                            Text(
-                              'A ${stock.ask.toStringAsFixed(2)}',
-                              style: TextStyle(
-                                color:
-                                    isDarkMode ? Colors.grey[200] : Colors.grey,
-                                fontSize: 10,
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'B ${stock.bid.toStringAsFixed(2)}',
+                                style: TextStyle(
+                                  color:
+                                      isDarkMode
+                                          ? Colors.grey[200]
+                                          : Colors.grey,
+                                  fontSize: 10,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                              Text(
+                                'A ${stock.ask.toStringAsFixed(2)}',
+                                style: TextStyle(
+                                  color:
+                                      isDarkMode
+                                          ? Colors.grey[200]
+                                          : Colors.grey,
+                                  fontSize: 10,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
