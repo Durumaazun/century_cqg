@@ -131,7 +131,6 @@ class DashboardBodyView extends StatelessWidget {
 
   Widget watchedListView(bool isDarkMode, DashboardService proValue) {
     return Container(
-      height: 320,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: NerveColors.primaryColor(isDarkMode),
@@ -162,7 +161,7 @@ class DashboardBodyView extends StatelessWidget {
 
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemCount: 4,
+              itemCount: proValue.stocks.length,
               separatorBuilder: (context, index) => const SizedBox(width: 16),
               itemBuilder: (context, index) {
                 return GestureDetector(
@@ -246,7 +245,7 @@ class DashboardBodyView extends StatelessWidget {
   Widget stockCard({required dynamic stock, required bool isDarkMode}) {
     return Container(
       width: 171,
-      height: 151,
+      height: 171,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: BoxDecoration(
         color: isDarkMode ? const Color(0xFF1C1E1D) : Colors.white,
