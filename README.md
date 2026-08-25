@@ -1,1 +1,0 @@
-# CenturyCQG-App
