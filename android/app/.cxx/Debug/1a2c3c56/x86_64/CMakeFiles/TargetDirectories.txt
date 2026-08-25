@@ -1,0 +1,2 @@
+C:/Huda/Git-Repo/CenturyCQG-App/century_cqg/android/app/.cxx/Debug/1a2c3c56/x86_64/CMakeFiles/edit_cache.dir
+C:/Huda/Git-Repo/CenturyCQG-App/century_cqg/android/app/.cxx/Debug/1a2c3c56/x86_64/CMakeFiles/rebuild_cache.dir
