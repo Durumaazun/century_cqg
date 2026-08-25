@@ -60,7 +60,7 @@ class DashboardAppbar extends StatelessWidget implements PreferredSizeWidget {
                     borderRadius: BorderRadius.circular(20),
                     child: Padding(
                       padding: NerveStyles.iconPadding,
-                      child: Icon(Icons.search, size: 18, color: iconColor),
+                      child: Icon(Icons.search, size: 22, color: iconColor),
                     ),
                   ),
                   InkWell(
@@ -70,20 +70,19 @@ class DashboardAppbar extends StatelessWidget implements PreferredSizeWidget {
                       padding: NerveStyles.iconPadding,
                       child: Icon(
                         Icons.notifications,
-                        size: 18,
+                        size: 22,
                         color: iconColor,
                       ),
                     ),
                   ),
-                  const SizedBox(width: 6),
-                  Switch.adaptive(
-                    value: isDarkMode,
-                    activeColor: titleColor,
-                    onChanged: (value) {
-                      service.setDarkMode(value);
-                    },
-                  ),
-                  const SizedBox(width: 8),
+                  // Switch.adaptive(
+                  //   value: isDarkMode,
+                  //   activeColor: titleColor,
+                  //   onChanged: (value) {
+                  //     service.setDarkMode(value);
+                  //   },
+                  // ),
+                  const SizedBox(width: 12),
                 ],
               ),
             ),

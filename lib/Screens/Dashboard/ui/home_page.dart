@@ -81,6 +81,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
                 ? const CommonAppbar(title: 'Trades')
                 : null,
         body: SafeArea(
+          top: false,
           child: Container(
             width: NerveBase().screenWidth,
             color: bgColor,
@@ -177,7 +178,8 @@ class _MobileHomePageState extends State<MobileHomePage> {
                     color:
                         isDarkMode ? const Color(0xFF282D2A) : Colors.grey[300],
                   ),
-                if (selectedIndex != 3) Container(height: 8, color: bgColor),
+                if (selectedIndex != 2 && selectedIndex != 3)
+                  Container(height: 8, color: bgColor),
                 Expanded(
                   child:
                       selectedIndex == 0

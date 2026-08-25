@@ -20,202 +20,6 @@ class OverviewTab extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              /*     Text(
-                'PORTFOLIO VALUE',
-                style: NerveStyles.grey_medium_12(isDarkMode),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    '\$67,504.34',
-                    style: NerveStyles.black_bold_24(isDarkMode),
-                  ),
-                  Wrap(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 2,
-                        ),
-                        decoration: BoxDecoration(
-                          color: NerveColors.softGreenBackgroundColor,
-                          borderRadius: BorderRadius.circular(22),
-                        ),
-
-                        child: Wrap(
-                          children: [
-                            const Icon(
-                              Icons.trending_up,
-                              color: Colors.green,
-                              size: 16,
-                            ),
-                            const SizedBox(width: 4),
-                            const Text(
-                              '4.45%',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.green,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      const SizedBox(width: 12),
-
-                      Text(
-                        '+\$257.07',
-                        style: NerveStyles.grey_medium_13(isDarkMode),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: 6),
-              Container(
-                height: 120,
-                decoration: BoxDecoration(
-                  color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    color: NerveColors.containerBorderColor,
-                    width: 1,
-                  ),
-                ),
-                child: Center(
-                  child: Text(
-                    'Chart Visualization',
-                    style: NerveStyles.grey_medium_14(isDarkMode),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 6),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children:
-                      ['1D', '1W', '1M', '3M', '1Y'].map((period) {
-                        final isSelected = period == '1D';
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 12),
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 8,
-                            ),
-                            decoration: BoxDecoration(
-                              color:
-                                  isSelected
-                                      ? NerveColors.selectedNavColor
-                                      : (isDarkMode
-                                          ? const Color(0xFF1E1E1E)
-                                          : Colors.white),
-                              borderRadius: BorderRadius.circular(20),
-                              border:
-                                  !isSelected
-                                      ? Border.all(
-                                        color: NerveColors.containerBorderColor,
-                                        width: 1,
-                                      )
-                                      : null,
-                            ),
-                            child: Text(
-                              period,
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color:
-                                    isSelected
-                                        ? Colors.black
-                                        : (isDarkMode
-                                            ? Colors.grey[400]
-                                            : Colors.grey[600]),
-                              ),
-                            ),
-                          ),
-                        );
-                      }).toList(),
-                ),
-              ),
-              const SizedBox(height: 6),
-              GridView.count(
-                crossAxisCount: 3,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                mainAxisSpacing: 12,
-                crossAxisSpacing: 10,
-                childAspectRatio: 1.6,
-                children: [
-                  _MetricCard(
-                    isDarkMode: isDarkMode,
-                    label: 'Account Value',
-                    value: '\$67,504.34',
-                  ),
-                  _MetricCard(
-                    isDarkMode: isDarkMode,
-                    label: 'Invested Value',
-                    value: '\$63,504',
-                  ),
-                  _MetricCard(
-                    isDarkMode: isDarkMode,
-                    label: 'Available',
-                    value: '570.79',
-                  ),
-                  _MetricCard(
-                    isDarkMode: isDarkMode,
-                    label: 'Total PnL',
-                    value: '+557.07',
-                    valueColor: Colors.green,
-                  ),
-                  _MetricCard(
-                    isDarkMode: isDarkMode,
-                    label: 'Day PnL',
-                    value: '-57.56',
-                    valueColor: Colors.red,
-                  ),
-                  _MetricCard(
-                    isDarkMode: isDarkMode,
-                    label: 'Cash',
-                    value: '257.07',
-                  ),
-                ],
-              ),
-              const SizedBox(height: 6),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  marginUtilisation(isDarkMode),
-                  const SizedBox(height: 16),
-                  GridView.count(
-                    crossAxisCount: 3,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    mainAxisSpacing: 12,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: 1.6,
-                    children: [
-                      _MetricCard(
-                        isDarkMode: isDarkMode,
-                        label: 'Total Margin',
-                        value: '257.07',
-                      ),
-                      _MetricCard(
-                        isDarkMode: isDarkMode,
-                        label: 'Margin Call',
-                        value: '257.07',
-                      ),
-                      _MetricCard(
-                        isDarkMode: isDarkMode,
-                        label: 'Std. Close Out',
-                        value: '257.07',
-                      ),
-                    ],
-                  ), */
-              const SizedBox(height: 12),
-
               portfolioView(isDarkMode, proValue),
               const SizedBox(height: 18),
               topPositionView(isDarkMode, proValue),
@@ -402,13 +206,6 @@ class OverviewTab extends StatelessWidget {
                                       ? const Color(0xFF0D110F)
                                       : Colors.white),
                           borderRadius: BorderRadius.circular(20),
-                          border:
-                              !isSelected
-                                  ? Border.all(
-                                    color: NerveColors.containerBorderColor,
-                                    width: 1,
-                                  )
-                                  : null,
                         ),
                         child: Text(
                           period,
@@ -428,7 +225,7 @@ class OverviewTab extends StatelessWidget {
                   }).toList(),
             ),
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: 26),
           GridView.count(
             crossAxisCount: 3,
             shrinkWrap: true,
@@ -585,157 +382,147 @@ class OverviewTab extends StatelessWidget {
           ),
         ),
       ),
-      child: Card(
-        elevation: 0,
-        margin: EdgeInsets.zero,
-        color: isDarkMode ? const Color(0xFF0D110F) : Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Top Positions',
-                    style: NerveStyles.black_medium_14_400(isDarkMode),
-                  ),
-                  Text('Show All', style: NerveStyles.blue_bold_12(isDarkMode)),
-                ],
-              ),
-              const SizedBox(height: 6),
-              ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                padding: EdgeInsets.zero,
-                itemCount: proValue.positions.length,
-                itemBuilder: (context, index) {
-                  final item = proValue.positions[index];
-                  return Container(
-                    padding: const EdgeInsets.only(top: 8, bottom: 8),
-                    decoration: BoxDecoration(
-                      color:
-                          isDarkMode ? const Color(0xFF0D110F) : Colors.white,
-                      border: Border(
-                        bottom: BorderSide(
-                          color:
-                              isDarkMode
-                                  ? const Color(0xFF202220)
-                                  : NerveColors.containerBorderColor,
-                          width: 0.5,
-                        ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Top Positions',
+                  style: NerveStyles.black_medium_14_400(isDarkMode),
+                ),
+                Text('Show All', style: NerveStyles.blue_bold_12(isDarkMode)),
+              ],
+            ),
+            const SizedBox(height: 6),
+            ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              padding: EdgeInsets.zero,
+              itemCount: proValue.positions.length,
+              itemBuilder: (context, index) {
+                final item = proValue.positions[index];
+                return Container(
+                  padding: const EdgeInsets.only(top: 8, bottom: 8),
+                  decoration: BoxDecoration(
+                    color: isDarkMode ? const Color(0xFF0D110F) : Colors.white,
+                    border: Border(
+                      bottom: BorderSide(
+                        color:
+                            isDarkMode
+                                ? const Color(0xFF202220)
+                                : NerveColors.containerBorderColor,
+                        width: 0.5,
                       ),
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const SizedBox(height: 8),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Wrap(
-                              children: [
-                                Text(
-                                  item.ticker,
-                                  style: TextStyle(
-                                    fontSize: 16,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const SizedBox(height: 8),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Wrap(
+                            children: [
+                              Text(
+                                item.ticker,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.black,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 6,
+                                  vertical: 2,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Colors.teal.withOpacity(0.1),
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: Text(
+                                  item.type,
+                                  style: const TextStyle(
+                                    color: Colors.teal,
+                                    fontSize: 10,
                                     fontWeight: FontWeight.bold,
-                                    color:
-                                        isDarkMode
-                                            ? Colors.white
-                                            : Colors.black,
                                   ),
                                 ),
-                                const SizedBox(width: 8),
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 6,
-                                    vertical: 2,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.teal.withOpacity(0.1),
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: Text(
-                                    item.type,
-                                    style: const TextStyle(
-                                      color: Colors.teal,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
+                            ],
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            decoration: BoxDecoration(
+                              color:
+                                  isDarkMode
+                                      ? const Color(0xFF0D110F)
+                                      : const Color(0xFFEAF7F0),
+                              borderRadius: BorderRadius.circular(6),
                             ),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                              ),
-                              decoration: BoxDecoration(
-                                color:
-                                    isDarkMode
-                                        ? const Color(0xFF0D110F)
-                                        : const Color(0xFFEAF7F0),
-                                borderRadius: BorderRadius.circular(6),
-                              ),
-                              child: SvgPicture.asset(
-                                'lib/Resources/Images/line_chart.svg',
-                                width: 150,
-                                height: 22,
-                              ),
+                            child: SvgPicture.asset(
+                              'lib/Resources/Images/line_chart.svg',
+                              width: 150,
+                              height: 22,
                             ),
-                            Text(
-                              '+ ${item.profit.toStringAsFixed(2)}',
-                              style: TextStyle(
-                                color:
-                                    isDarkMode
-                                        ? Colors.teal.shade200
-                                        : Colors.teal,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          ),
+                          Text(
+                            '+ ${item.profit.toStringAsFixed(2)}',
+                            style: TextStyle(
+                              color:
+                                  isDarkMode
+                                      ? Colors.teal.shade200
+                                      : Colors.teal,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
                             ),
-                          ],
-                        ),
-                        const SizedBox(height: 8),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Qty: ${item.qty}',
-                              style: TextStyle(
-                                color:
-                                    isDarkMode ? Colors.grey[200] : Colors.grey,
-                                fontSize: 13,
-                              ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Qty: ${item.qty}',
+                            style: TextStyle(
+                              color:
+                                  isDarkMode ? Colors.grey[200] : Colors.grey,
+                              fontSize: 13,
                             ),
-                            Text(
-                              'Avg: ${item.avgPrice.toStringAsFixed(2).padLeft(8, '0')}',
-                              style: TextStyle(
-                                color:
-                                    isDarkMode ? Colors.grey[200] : Colors.grey,
-                                fontSize: 13,
-                              ),
+                          ),
+                          Text(
+                            'Avg: ${item.avgPrice.toStringAsFixed(2).padLeft(8, '0')}',
+                            style: TextStyle(
+                              color:
+                                  isDarkMode ? Colors.grey[200] : Colors.grey,
+                              fontSize: 13,
                             ),
-                            Text(
-                              'LTP: ${item.ltp.toStringAsFixed(2)}',
-                              style: TextStyle(
-                                color:
-                                    isDarkMode ? Colors.grey[200] : Colors.grey,
-                                fontSize: 13,
-                              ),
+                          ),
+                          Text(
+                            'LTP: ${item.ltp.toStringAsFixed(2)}',
+                            style: TextStyle(
+                              color:
+                                  isDarkMode ? Colors.grey[200] : Colors.grey,
+                              fontSize: 13,
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
@@ -766,86 +553,80 @@ class OverviewTab extends StatelessWidget {
           ),
         ),
       ),
-      child: Card(
-        elevation: 0,
-        margin: EdgeInsets.zero,
-        color: isDarkMode ? const Color(0xFF0D110F) : Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 18, 16, 8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Allocation',
-                    style: NerveStyles.black_medium_14_500(isDarkMode),
-                  ),
-                  Text('Show All', style: NerveStyles.blue_bold_12(isDarkMode)),
-                ],
-              ),
-              const SizedBox(height: 14),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(6),
-                child: SizedBox(
-                  height: 7,
-                  child: Row(
-                    children:
-                        proValue.allocations
-                            .map(
-                              (item) => Expanded(
-                                flex: item.allocationPercent,
-                                child: Container(color: item.color),
-                              ),
-                            )
-                            .toList(),
-                  ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 18, 16, 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Allocation',
+                  style: NerveStyles.black_medium_14_500(isDarkMode),
+                ),
+                Text('Show All', style: NerveStyles.blue_bold_12(isDarkMode)),
+              ],
+            ),
+            const SizedBox(height: 14),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(6),
+              child: SizedBox(
+                height: 7,
+                child: Row(
+                  children:
+                      proValue.allocations
+                          .map(
+                            (item) => Expanded(
+                              flex: item.allocationPercent,
+                              child: Container(color: item.color),
+                            ),
+                          )
+                          .toList(),
                 ),
               ),
-              const SizedBox(height: 14),
-              ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                padding: EdgeInsets.zero,
-                itemCount: proValue.allocations.length,
-                separatorBuilder:
-                    (context, index) => Divider(
-                      color: NerveColors.containerBorderColor,
-                      height: 22,
-                    ),
-                itemBuilder: (context, index) {
-                  final item = proValue.allocations[index];
-                  return _allocationRow(
-                    isDarkMode: isDarkMode,
-                    symbol: item.symbol,
-                    name: item.name,
-                    changePercent: item.changePercent,
-                    allocationPercent: item.allocationPercent,
-                    amountInMillions: item.amountInMillions,
-                    color: item.color,
-                  );
-                },
-              ),
-              Divider(color: NerveColors.containerBorderColor, height: 22),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('TOTAL', style: NerveStyles.grey_medium_14(isDarkMode)),
-                  Text(
-                    proValue.allocationTotalValue,
-                    style: TextStyle(
-                      color:
-                          isDarkMode ? Colors.white : const Color(0xFF3E3F43),
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                    ),
+            ),
+            const SizedBox(height: 14),
+            ListView.separated(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              padding: EdgeInsets.zero,
+              itemCount: proValue.allocations.length,
+              separatorBuilder:
+                  (context, index) => Divider(
+                    color: NerveColors.containerBorderColor,
+                    height: 22,
                   ),
-                ],
-              ),
-              const SizedBox(height: 8),
-            ],
-          ),
+              itemBuilder: (context, index) {
+                final item = proValue.allocations[index];
+                return _allocationRow(
+                  isDarkMode: isDarkMode,
+                  symbol: item.symbol,
+                  name: item.name,
+                  changePercent: item.changePercent,
+                  allocationPercent: item.allocationPercent,
+                  amountInMillions: item.amountInMillions,
+                  color: item.color,
+                );
+              },
+            ),
+            Divider(color: NerveColors.containerBorderColor, height: 22),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('TOTAL', style: NerveStyles.grey_medium_14(isDarkMode)),
+                Text(
+                  proValue.allocationTotalValue,
+                  style: TextStyle(
+                    color: isDarkMode ? Colors.white : const Color(0xFF3E3F43),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+          ],
         ),
       ),
     );
